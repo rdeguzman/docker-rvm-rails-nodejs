@@ -1,5 +1,7 @@
 # README
 
+## Docker Cheatsheet
+
   % vim Dockerfile
 
   % docker build -t iris:1.0 .
@@ -17,3 +19,10 @@
   -t : Allocate a pseudo-tty
   -i : Keep STDIN open even if not attached
 
+## Instructions
+
+  % docker build -t iris:master .
+
+  % docker run -it iris:master bin/bash
+
+  % root@xxxx:/usr/local/datalink/iris

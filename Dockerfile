@@ -25,13 +25,11 @@ RUN echo 'source /etc/profile.d/rvm.sh' >> /etc/bash.bashrc
 # Postgres
 RUN apt-get install -y libpq-dev
 
-#ENV APP_HOME /iris
+# Create datalink folders
+ENV APP iris
+ENV DIRPATH /usr/local/datalink
 
-#RUN mkdir $APP_HOME
-#WORKDIR $APP_HOME
-#  
-#ADD Gemfile* $APP_HOME/
+RUN mkdir -p $DIRPATH/$APP
+WORKDIR $DIRPATH/$APP
 
-#RUN bundle install
-
-#ADD . $APP_HOME
+COPY iris $DIRPATH/$APP
