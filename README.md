@@ -2,8 +2,8 @@
 
   % vim Dockerfile
 
-  % docker build -t datalink/iris:1.0 .
-  -t : tag an image
+  % docker build -t iris:1.0 .
+  -t : tag an image REPOSITORY:iris TAG:1.0
 
   % docker build --no-cache=true
 

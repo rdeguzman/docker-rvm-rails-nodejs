@@ -22,6 +22,9 @@ RUN /bin/bash -l -c "rvm install 2.3.1"
 RUN /bin/bash -l -c "gem install bundler --no-ri --no-rdoc"
 RUN echo 'source /etc/profile.d/rvm.sh' >> /etc/bash.bashrc
 
+# Postgres
+RUN apt-get install -y libpq-dev
+
 #ENV APP_HOME /iris
 
 #RUN mkdir $APP_HOME
