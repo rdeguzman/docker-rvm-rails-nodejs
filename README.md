@@ -15,14 +15,18 @@
   % docker images -f dangling=true -q
   % docker rmi $(docker images -f dangling=true -q)
 
-  % docker run -it datalink/iris bin/bash
+  % docker run -it iris:1.0 bin/bash
   -t : Allocate a pseudo-tty
   -i : Keep STDIN open even if not attached
 
+  % vim docker-compose.yml
+
+  % docker-compose build
+  % docker-compose up
+  % docker-compose down
+  % docker-compose run web bash
+
 ## Instructions
 
-  % docker build -t iris:master .
-
-  % docker run -it iris:master bin/bash
-
-  % root@xxxx:/usr/local/datalink/iris
+  % docker-compose up
+  % docker-compose run web bower install

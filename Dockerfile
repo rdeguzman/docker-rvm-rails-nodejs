@@ -7,7 +7,13 @@ RUN apt-get install -y bash openssl libssl-dev curl
 # ensure https repo packages get installed for nodejs repo
 RUN apt-get install -y apt-transport-https
 
-RUN apt-get install -y gawk libyaml-dev libsqlite3-dev sqlite3 autoconf libgmp-dev libgdbm-dev libncurses5-dev automake libtool bison pkg-config libffi-dev libgmp-dev libreadline6-dev libxml2-dev libxslt1-dev tzdata
+RUN apt-get install -y gawk libyaml-dev libsqlite3-dev sqlite3 autoconf libgmp-dev libgdbm-dev libncurses5-dev automake libtool bison pkg-config libffi-dev libgmp-dev libreadline6-dev libxml2-dev libxslt1-dev
+
+# Fix rails server bug on missing TZdata
+RUN apt-get install -y tzdata
+
+# Need git for bower
+RUN apt-get install -y git
 
 # for a JS runtime for asset precompilation and ReactJS
 RUN curl -sL https://deb.nodesource.com/setup_6.x | bash
@@ -39,3 +45,6 @@ WORKDIR $DIRPATH/$APP
 RUN /bin/bash -l -c "rvm use ruby-2.1.1@iris"
 RUN /bin/bash -l -c "gem install bundler --no-ri --no-rdoc"
 RUN /bin/bash -l -c "bundle install"
+
+# Install bower
+RUN /bin/bash -c -l "npm install -g bower"
