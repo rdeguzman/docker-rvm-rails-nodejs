@@ -13,13 +13,10 @@ RUN apt-get install -y libxml2-dev libxslt1-dev
 RUN apt-get install -y libqt4-webkit libqt4-dev xvfb
 
 # for a JS runtime
-RUN curl -sL https://deb.nodesource.com/setup_6.x | bash 
-RUN apt-get install -y nodejs nodejs-dev npm
+# RUN curl -sL https://deb.nodesource.com/setup_6.x | bash 
+RUN apt-get install -y nodejs npm
 
 RUN apt-get install -y gawk libyaml-dev libsqlite3-dev sqlite3 autoconf libgmp-dev libgdbm-dev libncurses5-dev automake libtool bison pkg-config libffi-dev libgmp-dev libreadline6-dev
-
-RUN apt-get install -y libssl-doc libpq-dev python-psycopg2
-
 
 ENV APP_HOME /iris
 
