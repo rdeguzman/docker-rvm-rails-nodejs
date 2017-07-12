@@ -7,7 +7,7 @@ RUN apt-get install -y bash openssl libssl-dev curl
 # ensure https repo packages get installed for nodejs repo
 RUN apt-get install -y apt-transport-https
 
-RUN apt-get install -y gawk libyaml-dev libsqlite3-dev sqlite3 autoconf libgmp-dev libgdbm-dev libncurses5-dev automake libtool bison pkg-config libffi-dev libgmp-dev libreadline6-dev libxml2-dev libxslt1-dev
+RUN apt-get install -y gawk libyaml-dev libsqlite3-dev sqlite3 autoconf libgmp-dev libgdbm-dev libncurses5-dev automake libtool bison pkg-config libffi-dev libgmp-dev libreadline6-dev libxml2-dev libxslt1-dev tzdata
 
 # for a JS runtime for asset precompilation and ReactJS
 RUN curl -sL https://deb.nodesource.com/setup_6.x | bash
