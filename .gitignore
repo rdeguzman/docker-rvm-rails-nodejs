@@ -1,0 +1,21 @@
+.DS_Store
+.svn
+*~
+.*.swp
+
+.bundle
+.project
+db/*.sqlite3
+log/*.log
+*.log
+/tmp/
+tmp/**/*
+tmp/*
+*.tmproj
+
+#IntellJ Idea
+.idea/workspace.xml
+.idea/tasks.xml
+
+#Project specific
+iris
