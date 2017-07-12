@@ -1,0 +1,7 @@
+web:
+ build: .
+ command: /bin/bash -c -l "bundle exec rails s -b 0.0.0.0 -p 3003"
+ ports:
+   - "3003:3003"
+ volumes:
+   - iris:/usr/local/datalink/iris
