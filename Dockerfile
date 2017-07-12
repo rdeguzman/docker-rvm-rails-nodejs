@@ -49,3 +49,6 @@ RUN /bin/bash -l -c "bundle install"
 # Install bower
 RUN /bin/bash -l -c "npm install -g bower"
 RUN /bin/bash -l -c "bower install --allow-root"
+
+# Install npm
+RUN /bin/bash -l -c "npm install"
