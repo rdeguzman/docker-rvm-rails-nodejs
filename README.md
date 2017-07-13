@@ -33,3 +33,4 @@
   % docker-compose run app bundle install (opt)
 
   % docker-compose run app npm test
+  % docker-compose run app bower install --allow-root
