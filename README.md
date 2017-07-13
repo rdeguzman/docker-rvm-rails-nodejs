@@ -29,4 +29,7 @@
 ## Instructions
 
   % docker-compose up
-  % docker-compose run web bower install
+  % docker-compose run app bower install (opt)
+  % docker-compose run app bundle install (opt)
+
+  % docker-compose run app npm test
