@@ -23,32 +23,23 @@ RUN apt-get install -y nodejs
 RUN gpg --keyserver hkp://keys.gnupg.net --recv-keys 409B6B1796C275462A1703113804BB82D39DC0E3
 RUN curl -L https://get.rvm.io | bash -s stable
 RUN /bin/bash -l -c "rvm install 2.1.1"
-#RUN /bin/bash -l -c "gem install bundler --no-ri --no-rdoc"
 RUN /bin/bash -l -c "rvm install 2.3.1"
-#RUN /bin/bash -l -c "gem install bundler --no-ri --no-rdoc"
 RUN echo 'source /etc/profile.d/rvm.sh' >> /etc/bash.bashrc
 
 # Postgres
 RUN apt-get install -y libpq-dev
 
-# Create datalink folders
+# Create datalink folders for mountpoint
 ENV APP iris
 ENV DIRPATH /usr/local/datalink
-
 RUN mkdir -p $DIRPATH/$APP
 
-COPY iris $DIRPATH/$APP
-COPY iris/config/database.yml $DIRPATH/$APP/config/
-
 # Install gems
-WORKDIR $DIRPATH/$APP
-RUN /bin/bash -l -c "rvm use ruby-2.1.1@iris"
+COPY iris/Gemfile* /tmp/
+WORKDIR /tmp
+RUN /bin/bash -l -c "rvm --create use ruby-2.1.1@iris"
 RUN /bin/bash -l -c "gem install bundler --no-ri --no-rdoc"
 RUN /bin/bash -l -c "bundle install"
 
-# Install bower
-RUN /bin/bash -l -c "npm install -g bower"
-RUN /bin/bash -l -c "bower install --allow-root"
-
-# Install npm
-RUN /bin/bash -l -c "npm install"
+# Lets go to APP DIR
+WORKDIR $DIRPATH/$APP
