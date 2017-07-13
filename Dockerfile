@@ -48,3 +48,6 @@ RUN /bin/bash -l -c "bundle install"
 
 # Lets go to APP DIR
 WORKDIR $DIRPATH/$APP
+
+# install bower for javascript modules
+RUN /bin/bash -l -c "npm install -g bower"
