@@ -35,8 +35,13 @@ ENV DIRPATH /usr/local/datalink
 RUN mkdir -p $DIRPATH/$APP
 
 # Install gems
-COPY iris/Gemfile* /tmp/
-WORKDIR /tmp
+RUN mkdir /tmp/$APP
+COPY iris/Gemfile /tmp/$APP/
+COPY iris/Gemfile.lock /tmp/$APP/
+COPY iris/.ruby-version /tmp/$APP/
+COPY iris/.ruby-gemset /tmp/$APP/
+
+WORKDIR /tmp/$APP
 RUN /bin/bash -l -c "rvm --create use ruby-2.1.1@iris"
 RUN /bin/bash -l -c "gem install bundler --no-ri --no-rdoc"
 RUN /bin/bash -l -c "bundle install"
